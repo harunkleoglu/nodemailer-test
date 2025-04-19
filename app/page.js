@@ -1,16 +1,7 @@
 'use client'
 import { useState } from "react";
-import auth from "@/auth";
 
 export default function Home() {
-  const session = auth({ query: {} }); // Provide a mock query object if needed
-  if (!session) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-3xl font-bold">Please log in to send an email.</h1>
-      </div>
-    );
-  }
 
   const [formData, setFormData] = useState({
     subject: '',
@@ -19,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Send Email, {session?.user?.name}</h1>
+      <h1 className="text-3xl font-bold mb-6">Send Email</h1>
       <form
         className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
         onSubmit={async (e) => {
